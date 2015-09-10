@@ -27,14 +27,18 @@ set formatoptions+=t
 
 colorscheme molokai
 
+" Make JJ equivalent to esc
 imap jj <Esc>
 
 " Toggle NERDTree with Ctrl-N
 map <F2> :NERDTreeToggle<cr>
-map <C-L> :tabn<cr>
-map <C-N> :tabp<cr>
 
-inoremap <C-l> <ESC>%%a
+" Next/Prev tab
+map <C-L> :tabn<cr>
+map <C-H> :tabp<cr>
+
+" Skip to the end of line
+inoremap <C-I> <ESC>%%a
 
 let delimitMate_expand_cr = 1
 
