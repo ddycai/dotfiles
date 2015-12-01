@@ -1,13 +1,20 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'molokai'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'ctrlp.vim'
 Plugin 'SuperTab'
 Plugin 'delimitMate.vim'
+
+call vundle#end()
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
