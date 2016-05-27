@@ -7,12 +7,24 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
-Plugin 'molokai'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'ctrlp.vim'
 Plugin 'SuperTab'
 Plugin 'delimitMate.vim'
+
+" Color schemes
+Plugin 'molokai'
+Plugin 'marcopaganini/mojave-vim-theme'
+Plugin 'morhetz/gruvbox'
+Plugin 'NLKNguyen/papercolor-theme'
+
+" Language syntax support
+Plugin 'scrooloose/syntastic.git'
+Plugin 'lervag/vimtex.git'
+Plugin 'leafgarland/typescript-vim.git'
+
+" Enable this for scala syntax highlighting
+"Plugin 'derekwyatt/vim-scala.git'
 
 call vundle#end()
 
@@ -20,6 +32,12 @@ call vundle#end()
 filetype plugin indent on
 
 set t_Co=256
+
+" Set syntax highlighting for typescript
+autocmd BufRead,BufNewFile *.ts set syntax=typescript
+
+" Syntastic highlight python3
+let g:syntastic_python_python_exec = '/usr/bin/python3'
 
 syntax on
 set smartindent
@@ -29,16 +47,17 @@ set expandtab
 set smarttab
 
 " For word wrapping
-set tw=100
+set tw=80
 set formatoptions+=t
 
 colorscheme molokai
+" colorscheme mojave
 
 " Make JJ equivalent to esc
 imap jj <Esc>
 
 " Toggle NERDTree with Ctrl-N
-map <F2> :NERDTreeToggle<cr>
+map <C-N> :NERDTreeToggle<cr>
 
 " Next/Prev tab
 map <C-L> :tabn<cr>
@@ -48,8 +67,3 @@ map <C-H> :tabp<cr>
 inoremap <C-I> <ESC>%%a
 
 let delimitMate_expand_cr = 1
-
-" Populate .java file:
-autocmd BufNewFile *.java
- \ exe "normal O/** " . expand('%:t:r')".java\n/\npublic class " . expand('%:t:r') .
- \ " {\n\tpublic " . expand('%:t:r')"() {\n\n}\n} \<Esc>1G"
