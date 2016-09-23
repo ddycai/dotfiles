@@ -9,19 +9,19 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'ctrlp.vim'
-Plugin 'SuperTab'
-Plugin 'delimitMate.vim'
+" Plugin 'SuperTab'
+" Plugin 'delimitMate.vim'
 
 " Color schemes
 Plugin 'molokai'
-Plugin 'marcopaganini/mojave-vim-theme'
-Plugin 'morhetz/gruvbox'
-Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'marcopaganini/mojave-vim-theme'
+" Plugin 'morhetz/gruvbox'
+" Plugin 'NLKNguyen/papercolor-theme'
 
 " Language syntax support
 Plugin 'scrooloose/syntastic.git'
-Plugin 'lervag/vimtex.git'
-Plugin 'leafgarland/typescript-vim.git'
+" Plugin 'lervag/vimtex.git'
+" Plugin 'leafgarland/typescript-vim.git'
 
 " Enable this for scala syntax highlighting
 "Plugin 'derekwyatt/vim-scala.git'
@@ -34,7 +34,7 @@ filetype plugin indent on
 set t_Co=256
 
 " Set syntax highlighting for typescript
-autocmd BufRead,BufNewFile *.ts set syntax=typescript
+" autocmd BufRead,BufNewFile *.ts set syntax=typescript
 
 " Syntastic highlight python3
 let g:syntastic_python_python_exec = '/usr/bin/python3'
@@ -66,4 +66,4 @@ map <C-H> :tabp<cr>
 " Skip to the end of line
 inoremap <C-I> <ESC>%%a
 
-let delimitMate_expand_cr = 1
+" let delimitMate_expand_cr = 1
