@@ -1,11 +1,19 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+PS1='[\u@\h \W]\$ '
+BROWSER=/usr/bin/google-chrome-stable
+EDITOR=/usr/bin/vim
+
 alias ..='cd ..'
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
-
-babel_watch() {
-  babel --presets es2015 $1 --watch --progress -o $2
-}
-alias bw=babel_watch
+alias q='exit'
 
 # Git shortcuts
 alias gp='git status'         # git pending
