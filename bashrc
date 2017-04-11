@@ -14,6 +14,7 @@ alias ..='cd ..'
 alias bashrc='vim ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias q='exit'
+alias gnome-restart='gnome-shell --replace&'
 
 # Git shortcuts
 alias gp='git status'         # git pending

@@ -45,7 +45,7 @@ fi
 # Installing variety.
 if ask "Install variety?"; then
   echo "Installing variety..."
-  yaourt variety
+  sudo pacman -S variety
   restart_gnome=true
 fi
 
@@ -87,9 +87,17 @@ if ask "Install gnome extensions automatically?"; then
   # Task bar:
   # https://extensions.gnome.org/extension/584/taskbar/
   gnome-shell-extension-installer 584
+  # Task bar:
+  # https://extensions.gnome.org/extension/484/workspace-grid/
+  gnome-shell-extension-installer 484
   restart_gnome=true
 else
   echo "Please refer to the comments to install gnome extensions manually."
+fi
+
+# Install Google Chrome.
+if ask "Install Google Chrome?"; then
+  yaourt google-chrome
 fi
 
 # Restart gnome:
@@ -101,3 +109,4 @@ echo
 echo "TODO(you):"
 echo "1. Add redshift to list of startup application."
 echo "2. :PluginInstall on vim."
+echo "3. Enable global dark theme in tweak tool."
