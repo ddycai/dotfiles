@@ -15,6 +15,7 @@ if (( $# != 2 )); then
   exit 1
 fi
 
+is_gnome=false
 restart_gnome=false
 
 # ==================== Setup ====================
@@ -66,33 +67,36 @@ if ask "Install redshift?"; then
   cp redshift.conf ~/.config/
 fi
 
-# Make titlebars smaller for gnome.
-if ask "Make titlebars smaller?"; then
-  echo "Making titlebars smaller..."
-  cp gtk.css ~/.config/gtk-3.0/gtk.css
-fi
+# These options are only for gnome.
+if ask "Are you using gnome?"; then
+  # Make titlebars smaller for gnome.
+  if ask "Make titlebars smaller?"; then
+    echo "Making titlebars smaller..."
+    cp gtk.css ~/.config/gtk-3.0/gtk.css
+  fi
 
-# These commands will install gnome shell extensions automatically.
-if ask "Install gnome extensions automatically?"; then
-  yaourt gnome-shell-extension-installer
-  # Frippery move clock:
-  # https://extensions.gnome.org/extension/2/move-clock/
-  gnome-shell-extension-installer 2
-  # Topicons plus:
-  # https://extensions.gnome.org/extension/1031/topicons/
-  gnome-shell-extension-installer 1031
-  # Top panel workspace scroll:
-  # https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/
-  gnome-shell-extension-installer 701
-  # Task bar:
-  # https://extensions.gnome.org/extension/584/taskbar/
-  gnome-shell-extension-installer 584
-  # Task bar:
-  # https://extensions.gnome.org/extension/484/workspace-grid/
-  gnome-shell-extension-installer 484
-  restart_gnome=true
-else
-  echo "Please refer to the comments to install gnome extensions manually."
+  # These commands will install gnome shell extensions automatically.
+  if ask "Install gnome extensions automatically?"; then
+    yaourt gnome-shell-extension-installer
+    # Frippery move clock:
+    # https://extensions.gnome.org/extension/2/move-clock/
+    gnome-shell-extension-installer 2
+    # Topicons plus:
+    # https://extensions.gnome.org/extension/1031/topicons/
+    gnome-shell-extension-installer 1031
+    # Top panel workspace scroll:
+    # https://extensions.gnome.org/extension/701/top-panel-workspace-scroll/
+    gnome-shell-extension-installer 701
+    # Task bar:
+    # https://extensions.gnome.org/extension/584/taskbar/
+    gnome-shell-extension-installer 584
+    # Task bar:
+    # https://extensions.gnome.org/extension/484/workspace-grid/
+    gnome-shell-extension-installer 484
+    restart_gnome=true
+  else
+    echo "Please refer to the comments to install gnome extensions manually."
+  fi
 fi
 
 # Install Google Chrome.
@@ -109,4 +113,4 @@ echo
 echo "TODO(you):"
 echo "1. Add redshift to list of startup application."
 echo "2. :PluginInstall on vim."
-echo "3. Enable global dark theme in tweak tool."
+echo "3. If gnome: Enable global dark theme in tweak tool."

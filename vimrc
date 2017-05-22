@@ -31,6 +31,7 @@ call vundle#end()
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
 
+set noeb vb t_vb=
 set t_Co=256
 
 " Set syntax highlighting for typescript

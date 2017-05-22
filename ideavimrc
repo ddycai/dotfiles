@@ -1,0 +1,9 @@
+" Make JJ equivalent to esc
+imap jj <Esc>
+
+" Make indent 2 spaces
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab

@@ -16,6 +16,16 @@ alias vimrc='vim ~/.vimrc'
 alias q='exit'
 alias gnome-restart='gnome-shell --replace&'
 
+# Opens files in :vsplit.
+vsplit() {
+  vim -O "$@"
+}
+
+# Opens files in :hsplit.
+hsplit() {
+  vim -o "$@"
+}
+
 # Git shortcuts
 alias gp='git status'         # git pending
 alias gy='git pull'           # git sync
