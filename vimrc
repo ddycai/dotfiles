@@ -1,3 +1,7 @@
+" ============================
+" start of frigidrain ~/.vimrc
+" ============================
+
 set nocompatible
 filetype off
 

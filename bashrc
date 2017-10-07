@@ -1,17 +1,16 @@
-#
-# ~/.bashrc
-#
+# ========================
+# start frigidrain .bashrc
+# ========================
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+alias ls='ls -G'
 BROWSER=/usr/bin/google-chrome-stable
 EDITOR=/usr/bin/vim
 
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias bashrc='vim ~/.bashrc'
+alias sbasrhc='source ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias q='exit'
 alias gnome-restart='gnome-shell --replace&'
@@ -27,16 +26,14 @@ hsplit() {
 }
 
 # Git shortcuts
-alias gp='git status'         # git pending
-alias gy='git pull'           # git sync
-alias gc='git commit'         # git commit
-alias ga='git commit --amend' # git amend
-alias gl='git add --all .'    # git add all
+alias gp='git status'         # pending
+alias gy='git pull'           # sync
+alias gc='git commit'
+alias ga='git commit --amend' # amend
+alias gl='git add --all .'    # add all
 
 if [ -e /usr/share/terminfo/x/xterm-256color ]; then
         export TERM='xterm-256color'
 else
         export TERM='xterm-color'
 fi
-
-# export PS1="\W$ "
