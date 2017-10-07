@@ -2,7 +2,6 @@
 # start frigidrain .bashrc
 # ========================
 
-alias ls='ls -G'
 BROWSER=/usr/bin/google-chrome-stable
 EDITOR=/usr/bin/vim
 
