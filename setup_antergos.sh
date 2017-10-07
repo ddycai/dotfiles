@@ -1,14 +1,8 @@
 #!/bin/bash
 # Script for setting up antergos the way I like it.
 
-ask() {
-  read -p "$1 [y/n] " -n 1 -r
-  echo
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    return 0
-  fi
-  return 1
-}
+DIR="${BASH_SOURCE%/*}"
+. "$DIR/common.sh"
 
 if (( $# != 2 )); then
   echo "Usage: setup_antergos.sh <git-name> <git-email>"

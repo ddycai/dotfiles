@@ -1,6 +1,9 @@
 #!/bin/bash
 # Imports the dotfiles from the repo into your home dir.
 
+DIR="${BASH_SOURCE%/*}"
+. "$DIR/common.sh"
+
 dotfiles=$HOME/dotfiles
 backup=$HOME/dotfiles_old
 
@@ -10,15 +13,16 @@ if [ ! -d $dotfiles ]; then
 fi
 
 # Files to process
-files="bashrc vimrc tmux.conf jshintrc"
+files="tmux.conf jshintrc"
 
 echo "Creating $backup for backup of any existing dotfiles"
 mkdir -p $backup
 
-ask() {
+ask_for_file() {
   file=$1
-  read -p "What to do with .$file? [r: replace, a: append, s: skip] " choice
-  case $choice in
+  read -p "What to do with .$file? [r: replace, a: append, s: skip] " -n 1 -r
+  echo
+  case $REPLY in
       [Rr]* )
         echo "Backing up $HOME/.$file in $backup"
         mv $HOME/.$file $backup
@@ -31,7 +35,7 @@ ask() {
         echo "Appending to $HOME/.$file"
         cat "$dotfiles/$file" >> "$HOME/.$file"
         return 0;;
-      [Ss]* ) echo "OK."; return 0;;
+      [Ss]* ) return 0;;
       * )
         echo "Invalid option. (r: replace, a: append, n: skip)"
         return 1;;
@@ -40,8 +44,16 @@ ask() {
 
 for file in $files; do
   while true; do
-    if ask $file; then
+    if ask_for_file $file; then
       break
     fi
   done
 done
+
+if ask "source $dotfiles/bashrc in your ~/.bashrc?"; then
+  echo "source \$HOME/dotfiles/bashrc" >> "$HOME/.bashrc"
+fi
+
+if ask "source $dotfiles/vimrc in your ~/.vimrc?"; then
+  echo "source \$HOME/dotfiles/vimrc" >> "$HOME/.vimrc"
+fi
