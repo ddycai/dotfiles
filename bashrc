@@ -4,12 +4,13 @@
 
 BROWSER=/usr/bin/google-chrome-stable
 EDITOR=/usr/bin/vim
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias bashrc='vim ~/.bashrc'
-alias sbasrhc='source ~/.bashrc'
+alias sb='source ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias q='exit'
 alias gnome-restart='gnome-shell --replace&'
