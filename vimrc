@@ -7,7 +7,7 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 
-" Install ag to use this.
+" Install ag with this to use :Ag.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
