@@ -5,32 +5,27 @@
 set nocompatible
 filetype off
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'ctrlp.vim'
-" Plugin 'SuperTab'
-" Plugin 'delimitMate.vim'
+" Install ag to use this.
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Color schemes
-Plugin 'molokai'
-" Plugin 'marcopaganini/mojave-vim-theme'
-" Plugin 'morhetz/gruvbox'
-" Plugin 'NLKNguyen/papercolor-theme'
+Plug 'tomasr/molokai'
+" Plug 'marcopaganini/mojave-vim-theme'
+" Plug 'morhetz/gruvbox'
+" Plug 'NLKNguyen/papercolor-theme'
 
 " Language syntax support
-Plugin 'scrooloose/syntastic.git'
-" Plugin 'lervag/vimtex.git'
-" Plugin 'leafgarland/typescript-vim.git'
+Plug 'vim-syntastic/syntastic'
+" Plug 'lervag/vimtex.git'
+" Plug 'leafgarland/typescript-vim.git'
 
 " Enable this for scala syntax highlighting
-"Plugin 'derekwyatt/vim-scala.git'
+"Plug 'derekwyatt/vim-scala.git'
 
-call vundle#end()
+call plug#end()
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
@@ -61,8 +56,11 @@ colorscheme molokai
 " Make JJ equivalent to esc
 imap jj <Esc>
 
-" Toggle NERDTree with Ctrl-N
-map <C-N> :NERDTreeToggle<cr>
+" Grep within files using :Ag
+map <C-M> :Ag<cr>
+
+" Search for files using :Files
+map <C-N> :Files<cr>
 
 " Next/Prev tab
 map <C-L> :tabn<cr>
