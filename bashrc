@@ -14,16 +14,12 @@ alias sb='source ~/.bashrc'
 alias vimrc='vim ~/.vimrc'
 alias q='exit'
 alias gnome-restart='gnome-shell --replace&'
+alias sb='source ~/.bashrc'
 
-# Opens files in :vsplit.
-vsplit() {
-  vim -O "$@"
-}
-
-# Opens files in :hsplit.
-hsplit() {
-  vim -o "$@"
-}
+# Opens files vertically split in vim.
+alias vsplit='vim -O'
+# Opens files horizontally split in vim.
+alias hsplit='vim -o'
 
 # Git shortcuts
 alias gp='git status'         # pending
