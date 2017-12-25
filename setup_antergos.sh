@@ -4,31 +4,30 @@
 DIR="${BASH_SOURCE%/*}"
 . "$DIR/common.sh"
 
-if (( $# != 2 )); then
-  echo "Usage: setup_antergos.sh <git-name> <git-email>"
-  exit 1
-fi
-
 is_gnome=false
 restart_gnome=false
 
 # ==================== Setup ====================
-if ask "Change hardware clock standard to localtime?"; then
+if ask "Run dotfiles install script?"; then
+  bash "$DIR/install.sh"
+fi
+
+if ask "(For Windows dual boot) Change hardware clock standard to localtime?"; then
   timedatectl set-local-rtc 1
 fi
 
 # Update grub.
-if ask "Update grub?"; then
+if ask "Update grub? (if Windows is not in grub)"; then
   echo "Updating grub..."
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
 
-# Set up your git email.
+# Set up your git username and email.
 if ask "Set up your git username and email?"; then
-  echo "Setting up your git name as $1..."
-  git config --global user.name "$1"
-  echo "Setting up your git email as $2..."
-  git config --global user.email "$2"
+  read -p 'Enter your git name: ' gitname
+  git config --global user.name "$gitname"
+  read -p 'Enter your git email: ' gitemail
+  git config --global user.email "$gitemail"
 fi
 
 # Install vim.
@@ -45,13 +44,9 @@ if ask "Install variety?"; then
 fi
 
 # Install vundle and copy my dotfiles.
-if ask "Install vundle?"; then
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-fi
-
-if ask "Install dotfiles and make symlinks?"; then
-  git clone https://github.com/frigidrain/dotfiles.git ~/dotfiles
-  bash ~/dotfiles/makesymlinks.sh
+if ask "Install vim-plug?"; then
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
 # Install redshift.
@@ -93,6 +88,13 @@ if ask "Are you using gnome?"; then
   fi
 fi
 
+# These options are only for cinnamon.
+if ask "Are you using cinnamon?"; then
+  if ask "Install numix-cinnamon-dark theme?"; then
+    yaourt numix-cinnamon-dark
+  fi
+fi
+
 # Install Google Chrome.
 if ask "Install Google Chrome?"; then
   yaourt google-chrome
@@ -106,5 +108,5 @@ fi
 echo
 echo "TODO(you):"
 echo "1. Add redshift to list of startup application."
-echo "2. :PluginInstall on vim."
+echo "2. :PlugInstall on vim."
 echo "3. If gnome: Enable global dark theme in tweak tool."

@@ -14,8 +14,6 @@ Plug 'junegunn/fzf.vim'
 " Color schemes
 Plug 'tomasr/molokai'
 " Plug 'marcopaganini/mojave-vim-theme'
-" Plug 'morhetz/gruvbox'
-" Plug 'NLKNguyen/papercolor-theme'
 
 " Language syntax support
 Plug 'vim-syntastic/syntastic'
@@ -29,9 +27,6 @@ call plug#end()
 
 " Now we can turn our filetype functionality back on
 filetype plugin indent on
-
-set noeb vb t_vb=
-set t_Co=256
 
 " Set syntax highlighting for typescript
 " autocmd BufRead,BufNewFile *.ts set syntax=typescript
@@ -51,7 +46,6 @@ set tw=80
 set formatoptions+=t
 
 colorscheme molokai
-" colorscheme mojave
 
 " Make JJ equivalent to esc
 imap jj <Esc>
@@ -65,8 +59,3 @@ map <C-N> :Files<cr>
 " Next/Prev tab
 map <C-L> :tabn<cr>
 map <C-H> :tabp<cr>
-
-" Skip to the end of line
-inoremap <C-I> <ESC>%%a
-
-" let delimitMate_expand_cr = 1
