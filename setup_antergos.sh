@@ -100,6 +100,15 @@ if ask "Install Google Chrome?"; then
   yaourt google-chrome
 fi
 
+if ask "Install Asian fonts and emojis?"; then
+  sudo pacman -S adobe-source-han-sans-otc-fonts
+  sudo pacman -S noto-fonts-emoji
+fi
+
+if ask 'Install xf86-input-libinput (for mouse accel)?'; then
+  sudo pacman -S xf86-input-libinput
+fi
+
 # Restart gnome:
 if [ "$restart_gnome" == "true" ]; then
   gnome-shell --replace &
