@@ -43,16 +43,14 @@ set -g mode-style bg="#1d1f21",fg="#de935f"
 
 # right side of status bar holds "[host name] (date time)"
 set -g status-right-length 100
-set -g status-right-fg black
-set -g status-right-attr bold
-set -g status-right '#[fg=#f99157,bg=#2d2d2d] %H:%M |#[fg=#6699cc] %y.%m.%d '
+set -g status-right-style fg="black,bold"
+set -g status-right '#{prefix_highlight} #[fg=#f99157,bg=#2d2d2d] %H:%M |#[fg=#6699cc] %y.%m.%d '
 
 # make background window look like white tab
 set-window-option -g window-status-style bg=default,fg=white,none
 set-window-option -g window-status-format '#[fg=#6699cc,bg=colour235] #I #[fg=#999999,bg=#2d2d2d] #W #[default]'
 
 # make foreground window look like bold yellow foreground tab
-set-window-option -g window-status-current-attr none
 set-window-option -g window-status-current-format '#[fg=#f99157,bg=#2d2d2d] #I #[fg=#cccccc,bg=#393939] #W #[default]'
 
 # active terminal yellow border, non-active white
