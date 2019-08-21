@@ -35,7 +35,7 @@ if ask "source $dotfiles/vimrc in your ~/.vimrc?"; then
   echo "source \$HOME/dotfiles/vimrc" >> "$HOME/.vimrc"
 fi
 
-if ask "copy tmux themes to ~/.tmux/themes?"; then
+if ask "make symlink for tmux themes in ~/.tmux/themes?"; then
   mkdir -p $HOME/.tmux/themes/
-  cp $dotfiles/tmux/themes/* $HOME/.tmux/themes
+  ln -s $dotfiles/tmux/themes/* $HOME/.tmux/themes
 fi
