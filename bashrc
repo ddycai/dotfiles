@@ -4,7 +4,9 @@
 
 BROWSER=/usr/bin/google-chrome-stable
 EDITOR=/usr/bin/vim
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+# Uncomment for coloured prompt override.
+#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;33m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 alias ..='cd ..'
 alias ...='cd ../..'
