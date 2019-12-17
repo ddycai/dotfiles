@@ -1,4 +1,6 @@
 # Color key:
+#   PRIMARY: #f99157
+#   SECONDARY: #6699cc
 #   #1d1f21 Background
 #   #282a2e Current Line
 #   #373b41 Selection
@@ -37,7 +39,7 @@ set -g message-style bg="#8abeb7",fg="#000000"
 set -g message-command-style bg="#8abeb7",fg="#000000"
 
 # message bar or "prompt"
-set -g message-style bg="#2d2d2d",fg="#cc99cc"
+set -g message-style bg="#2d2d2d",fg="#f99157"
 
 set -g mode-style bg="#1d1f21",fg="#de935f"
 
