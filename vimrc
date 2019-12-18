@@ -1,7 +1,3 @@
-" ============================
-" start of frigidrain ~/.vimrc
-" ============================
-
 set nocompatible
 filetype off
 
@@ -57,10 +53,10 @@ colorscheme molokai
 " Make JJ equivalent to esc
 imap jj <Esc>
 
-" Grep within files using :Ag
+" Ctrl + M: Grep within files using :Ag
 map <C-M> :Ag<cr>
 
-" Search for files using :Files
+" Ctrl + N: Search for files using :Files
 map <C-N> :Files<cr>
 
 " Next/Prev tab

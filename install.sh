@@ -11,6 +11,19 @@ if [ ! -d $dotfiles ]; then
   exit 1
 fi
 
+function join_by { local IFS="$1"; shift; echo "$*"; }
+
+packages=("vim" "guake" "tmux" "the_silver_searcher")
+packages_str=$(join_by " " ${packages[@]})
+
+if ask "install packages: $(join_by " " ${packages[@]})?"; then
+  read -p 'Enter installation command: (default pacman -S) ' install_cmd
+  if [[ -z "$install_cmd" ]]; then
+    install_cmd='pacman -S'
+  fi
+  sudo $install_cmd ${packages[@]}
+fi
+
 if ask "source $dotfiles/bashrc in your ~/.bashrc?"; then
   echo "source \$HOME/dotfiles/bashrc" >> "$HOME/.bashrc"
 fi
