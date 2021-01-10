@@ -1,3 +1,3 @@
-# Dotfiles
+# dotfiles
 
-To use in your home directory, run `install.sh`.
+Clone to home directory and run `install.sh`.

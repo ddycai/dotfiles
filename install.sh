@@ -1,8 +1,13 @@
 #!/bin/bash
 # Sources config files from dotfiles repo.
 
-DIR="${BASH_SOURCE%/*}"
-. "$DIR/common.sh"
+ask() {
+  read -p "$1 [Y/n] " response
+  if [[ -z "$response" ]] || [[ $response =~ ^[Yy]$ ]] ; then
+    return 0
+  fi
+  return 1
+}
 
 dotfiles=$HOME/dotfiles
 

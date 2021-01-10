@@ -56,8 +56,8 @@ imap jj <Esc>
 " Ctrl + M: Grep within files using :Ag
 map <C-M> :Ag<cr>
 
-" Ctrl + N: Search for files using :Files
-map <C-N> :Files<cr>
+" Ctrl + P: Search for files using :Files
+map <C-P> :Files<cr>
 
 " Next/Prev tab
 map <C-L> :tabn<cr>
