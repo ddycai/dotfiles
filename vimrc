@@ -2,9 +2,9 @@ set nocompatible
 filetype off
 
 " Auto-setup for vim plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -50,8 +50,8 @@ set formatoptions+=t
 
 colorscheme molokai
 
-" Make JJ equivalent to esc
-imap jj <Esc>
+" Make KJ equivalent to esc
+imap kj <Esc>
 
 " Ctrl + M: Grep within files using :Ag
 map <C-M> :Ag<cr>
@@ -62,3 +62,7 @@ map <C-P> :Files<cr>
 " Next/Prev tab
 map <C-L> :tabn<cr>
 map <C-H> :tabp<cr>
+
+" Easier way to skip to start/end of line
+map 9 _
+map 0 $
