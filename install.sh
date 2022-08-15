@@ -37,6 +37,10 @@ if ask "source $dotfiles/vimrc in your ~/.vimrc?"; then
   echo "source \$HOME/dotfiles/vimrc" >> "$HOME/.vimrc"
 fi
 
+if ask "install Tmux Plugin Manager (TPM)?"; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 if ask "source $dofiles/tmux.conf in your ~/.tmux.conf"; then
   echo "source \$HOME/dotfiles/tmux.conf" >> "$HOME/.tmux.conf"
 fi
