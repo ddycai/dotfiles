@@ -63,6 +63,9 @@ map <C-P> :Files<cr>
 map <C-L> :tabn<cr>
 map <C-H> :tabp<cr>
 
+" Ctrl + A to select entire document
+nnoremap <C-a> ggVG
+
 " Easier way to skip to start/end of line
 map 9 _
 map 0 $
